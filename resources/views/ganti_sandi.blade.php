@@ -29,6 +29,17 @@
     </div>
 
     <div class="relative z-10 text-white p-12 rounded-3xl w-full max-w-md bg-transparent">
+@php
+    $user = Auth::user();
+    $id = $user->custom_identifier;
+    $role = $user->role;
+@endphp
+
+<a href="{{ $role === 'siswa' ? route('siswa.profile', $id) : route('guru.profile', $id) }}"
+    class="mt-4 inline-block w-full text-center bg-gray-400 text-white font-bold py-2 px-6 rounded-xl hover:bg-gray-500 transition duration-300 text-sm ease-in-out transform hover:scale-105">
+    KEMBALI KE PROFIL
+</a>
+
         <h2 class="text-3xl font-bold text-center mb-6 text-blue-900">GANTI KATA SANDI</h2>
 
         {{-- Pesan sukses --}}
@@ -93,6 +104,7 @@
                 class="w-1/2 bg-blue-800 text-white font-bold py-2 px-6 rounded-xl hover:bg-blue-900 transition duration-300 mx-auto block text-sm ease-in-out transform hover:scale-105">
                 GANTI KATA SANDI
             </button>
+
         </form>
     </div>
 </body>

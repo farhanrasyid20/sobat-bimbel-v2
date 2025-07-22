@@ -97,4 +97,10 @@ class GuruController extends Controller
         // Mengarahkan kembali ke halaman sebelumnya dengan pesan sukses.
         return redirect()->back()->with('success', 'Akun guru berhasil dihapus.');
     }
+    public function profil($id)
+{
+    $guru = User::where('role', 'guru')->where('custom_identifier', $id)->firstOrFail();
+    return view('guru.profile', compact('guru'));
+}
+
 }

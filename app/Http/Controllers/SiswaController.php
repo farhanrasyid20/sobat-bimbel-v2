@@ -61,4 +61,10 @@ class SiswaController extends Controller
         // Redirect dengan pesan sukses
         return redirect()->route('admin.profile_siswa')->with('success', 'Akun siswa berhasil dihapus.');
     }
+    public function profil($id)
+{
+    $guru = User::where('role', 'siswa')->where('custom_identifier', $id)->firstOrFail();
+    return view('siswa.profile', compact('siswa'));
+}
+
 }

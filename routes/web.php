@@ -159,6 +159,7 @@ Route::get('/guru/penilaian/{siswa_id}/{tugas_id}/{minggu}', [PenilaianControlle
     Route::post('/siswa.pengumpulan_tugas', [PengumpulanTugasController::class, 'store'])->name('siswa.pengumpulan_tugas.store');
     Route::delete('/pengumpulan/{id}', [PengumpulanTugasController::class, 'destroy'])->name('pengumpulan.destroy');
 
-
+    Route::get('/siswa/profile/{id}', [SiswaController::class, 'profil']);
+Route::get('/guru/profile/{id}', [GuruController::class, 'profil']);
 });
 
