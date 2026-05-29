@@ -1,6 +1,6 @@
 # Proyek Sobat Bimbel Semester 2
 
-- Kode Tim: IF-2MA-XX
+- Kode Tim: IF-2MA-07
 - Judul: Pengembangan Sistem Informasi Sobat Bimbel
 
 ## Deskripsi Permasalahan
