@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,12 +10,30 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         @keyframes floatingFade {
-            0% { transform: translateX(0); opacity: 0.5;}
-            25% { opacity: 1.5;}
-            50% { transform: translateX(0); opacity: 2;}
-            75% { opacity: 1.5;}
-            100% { transform: translateX(0); opacity: 0.5;}
+            0% {
+                transform: translateX(0);
+                opacity: 0.5;
+            }
+
+            25% {
+                opacity: 1.5;
+            }
+
+            50% {
+                transform: translateX(0);
+                opacity: 2;
+            }
+
+            75% {
+                opacity: 1.5;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 0.5;
+            }
         }
+
         .animate-floating-fade {
             animation: floatingFade 15s ease-in-out infinite;
         }
@@ -29,16 +48,11 @@
     </div>
 
     <div class="relative z-10 text-white p-12 rounded-3xl w-full max-w-md bg-transparent">
-@php
-    $user = Auth::user();
-    $id = $user->custom_identifier;
-    $role = $user->role;
-@endphp
-
-<a href="{{ $role === 'siswa' ? route('siswa.profile', $id) : route('guru.profile', $id) }}"
-    class="mt-4 inline-block w-full text-center bg-gray-400 text-white font-bold py-2 px-6 rounded-xl hover:bg-gray-500 transition duration-300 text-sm ease-in-out transform hover:scale-105">
-    KEMBALI KE PROFIL
-</a>
+        @php
+            $user = Auth::user();
+            $id = $user->custom_identifier;
+            $role = $user->role;
+        @endphp
 
         <h2 class="text-3xl font-bold text-center mb-6 text-blue-900">GANTI KATA SANDI</h2>
 
@@ -65,7 +79,8 @@
 
             <!-- Kata Sandi Lama -->
             <div class="relative mb-6">
-                <label for="current_password" class="block text-gray-700 text-base font-medium mb-2">Kata Sandi Lama</label>
+                <label for="current_password" class="block text-gray-700 text-base font-medium mb-2">Kata Sandi
+                    Lama</label>
                 <input type="password" id="current_password" name="current_password" placeholder="Kata Sandi Lama"
                     class="w-full pl-10 pr-4 py-3 rounded-full text-gray-700 placeholder-gray-400 bg-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out transform hover:scale-105"
                     required />
@@ -87,7 +102,8 @@
 
             <!-- Konfirmasi Kata Sandi Baru -->
             <div class="relative mb-6">
-                <label for="password_confirmation" class="block text-gray-700 text-base font-medium mb-2">Konfirmasi Kata Sandi Baru</label>
+                <label for="password_confirmation" class="block text-gray-700 text-base font-medium mb-2">Konfirmasi
+                    Kata Sandi Baru</label>
                 <input type="password" id="password_confirmation" name="password_confirmation"
                     placeholder="Konfirmasi Kata Sandi Baru"
                     class="w-full pl-10 pr-4 py-3 rounded-full text-gray-700 placeholder-gray-400 bg-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out transform hover:scale-105"
@@ -97,15 +113,22 @@
                 </span>
             </div>
 
-            <p class="text-gray-700 text-sm italic text-center mb-4">*Kata sandi minimal 8 karakter & berbeda dari sebelumnya</p>
+            <p class="text-gray-700 text-sm italic text-center mb-3">*Kata sandi minimal 8 karakter & berbeda dari
+                sebelumnya</p>
+
+            <a href="{{ $role === 'siswa' ? route('siswa.profile', $id) : route('guru.profile', $id) }}"
+                class=" inline-block w-full text-center bg-gray-400 text-white font-bold py-1.5 px-3 rounded-xl hover:bg-gray-500 transition duration-300 text-sm ease-in-out transform hover:scale-105">
+                KEMBALI KE PROFIL
+            </a>
 
             <!-- Tombol Ganti -->
             <button type="submit"
-                class="w-1/2 bg-blue-800 text-white font-bold py-2 px-6 rounded-xl hover:bg-blue-900 transition duration-300 mx-auto block text-sm ease-in-out transform hover:scale-105">
+                class="mt-3 w-full bg-blue-800 text-white font-bold py-1.5 px-3 rounded-xl hover:bg-blue-900 transition duration-300 mx-auto block text-sm ease-in-out transform hover:scale-105">
                 GANTI KATA SANDI
             </button>
 
         </form>
     </div>
 </body>
+
 </html>
